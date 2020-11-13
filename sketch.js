@@ -62,6 +62,11 @@ function keyPressed(){
 }
 }
 
+function keyReleased(){
+
+    player.direction = 'still';
+}
+
 // function mousePressed(){
 //   state = 'level 1';
 // }
