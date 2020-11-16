@@ -9,10 +9,12 @@ let player;
 let coins = [];
 let playerImg;
 let coinImg;
+let bgImg;
 
 function preload(){
   playerImg = loadImage('image/slime.gif');
   coinImg = loadImage('image/coin.gif');
+  bgImg = loadImage('image/BG.gif');
 }
 
 function setup(){
@@ -53,11 +55,13 @@ function keyPressed(){
     player.direction = 'left'
   } else if (keyCode == RIGHT_ARROW){
     player.direction = 'right'
-} else if (keyCode == UP_ARROW){
-  player.direction = 'up'
-} else if (keyCode == DOWN_ARROW){
-  player.direction = 'down'
-} else if (key = ' '){
+}
+// else if (keyCode == UP_ARROW){
+//   player.direction = 'up'
+// } else if (keyCode == DOWN_ARROW){
+//   player.direction = 'down'
+// }
+else if (key = ' '){
   player.direction = 'still';
 }
 }
@@ -73,7 +77,7 @@ function keyReleased(){
 
 
 function title() {
-  background(0);
+  background(bgImg);
   textSize(80);
   fill(255);
   textAlign(CENTER);
@@ -90,7 +94,7 @@ function titleMouseClicked(){
 
 
 function level1(){
-  background(50, 150, 200);
+  background(bgImg);
 
   if (random(1) <= 0.01){
     coins.push(new Coin());
