@@ -1,1 +1,1 @@
-# gamedemo
+# GiphyAPI
