@@ -106,14 +106,8 @@ function level1(){
   for (let i = 0; i < coins.length; i++){
     coins[i].display();
     coins[i].move();
-    if(coins[i].y == cnv.getHeight()){
-      player.hp--;
-    }
   }
 
-  if(player.hp==0){
-    youWin();
-  }
 
   // coins.forEach(function(coin){
   //   coin.display();
