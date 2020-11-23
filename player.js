@@ -6,6 +6,7 @@ class Player {
     this.y = h - this.r;
     this.speed = 8;
     this.direction = 'still';
+    this.hp = 3;
   }
 
   display(){
