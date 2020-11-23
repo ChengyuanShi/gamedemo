@@ -12,10 +12,6 @@ class Coin {
   }
 
   move(){
-    this.y++;
-    if(this.y == cnv.height ){
-      player.hp --;
-    }
-
+    this.y++;  
   }
 }
