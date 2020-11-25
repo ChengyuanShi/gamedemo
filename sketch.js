@@ -188,7 +188,7 @@ if(points<=0){
 if(points<=-1){
   state = 'you lost';
 }
-if(points>=20){
+if(points>=21){
   state = 'you win';
 }
 
