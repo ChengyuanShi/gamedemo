@@ -7,13 +7,16 @@ let w = 600;
 let h = 600;
 let player;
 let coins = [];
+let enemy = [];
 let playerImg;
 let coinImg;
 let bgImg;
+let enemyImg;
 
 function preload(){
   playerImg = loadImage('image/slime.gif');
   coinImg = loadImage('image/coin.gif');
+  enemyImg = loadImage('image/enemy.gif');
   bgImg = loadImage('image/BG.gif');
 }
 
@@ -26,6 +29,8 @@ textFont('monospace');
 
   // coins[0] = new Coin();
   coins.push(new Coin());
+
+  enemy.push(new Enemy());
 }
 
 function draw() {
@@ -98,6 +103,8 @@ function level1(){
 
   if (random(1) <= 0.01){
     coins.push(new Coin());
+
+    enemy.push(new Enemy());
   }
 
   player.display();
@@ -130,21 +137,59 @@ function level1(){
     console.log('coin is out of town');
   }
 }
+
+
+
+
+for (let i = 0; i < enemy.length; i++){
+  enemy[i].display();
+  enemy[i].move();
+}
+
+
+// coins.forEach(function(coin){
+//   coin.display();
+//   coin.move();
+// })
+
+// for (let coin of coins){
+//   coin.display();
+//   coin.move();
+// }
+
+for (let i = enemy.length - 1; i >= 0; i--){
+
+if(dist(player.x, player.y,enemy[i].x, enemy[i].y) <= (player.r + enemy[i].r)/2){
+  points--;
+  console.log(points);
+  enemy.splice(i, 1);
+} else if (enemy[i]. y > h){
+  enemy,splice(i, 1);
+  console.log('enemy is out of town');
+}
+}
+
+
+
+
 text('points: ' + points, w/7, h - 560);
+
+
 
 }
 
 function level1MouseClicked(){
-    // points++;
-    // console.log('points = ' + points);
-    //
-    // if(points >= 10){
-    //   state = 'you win';
-    // }
+
+    points++;
+    console.log('points = ' + points);
+
+    if(points = 10){
+      state = 'you win';
+    }
 }
 
 function youWin(){
-  background(255, 50, 80);
+  background(bgImg);
   textSize(80);
   stroke(255);
   text('YOU WIN', w/2, h/2);
