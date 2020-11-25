@@ -12,12 +12,17 @@ let playerImg;
 let coinImg;
 let bgImg;
 let enemyImg;
+let winImg;
+let dieImg;
+
 
 function preload(){
   playerImg = loadImage('image/slime.gif');
   coinImg = loadImage('image/coin.gif');
   enemyImg = loadImage('image/enemy.gif');
   bgImg = loadImage('image/BG.gif');
+  winImg = loadImage('image/win.gif');
+  dieImg = loadImage('image/die.gif');
 }
 
 function setup(){
@@ -48,6 +53,10 @@ function draw() {
   youWin();
   cnv.mouseClicked(youWinMouseClicked);
     break;
+    case 'you lost':
+    youLost();
+    cnv.mouseClicked(youLostMouseClicked);
+      break;
     default:
     break;
   }
@@ -89,7 +98,7 @@ function title() {
   text('RAIN EATER', w/2, h/5);
 
   textSize(30);
-  text('click anywhere to start', w/2, h/2);
+  text('click anywhere to start', w/2, h/2.8);
 }
 
 function titleMouseClicked(){
@@ -113,6 +122,7 @@ function level1(){
   for (let i = 0; i < coins.length; i++){
     coins[i].display();
     coins[i].move();
+
   }
 
 
@@ -129,12 +139,15 @@ function level1(){
   for (let i = coins.length - 1; i >= 0; i--){
 
   if(dist(player.x, player.y, coins[i].x, coins[i].y) <= (player.r + coins[i].r)/2){
+    player.r++;
     points++;
+
     console.log(points);
     coins.splice(i, 1);
   } else if (coins[i]. y > h){
     coins,splice(i, 1);
     console.log('coin is out of town');
+
   }
 }
 
@@ -160,6 +173,7 @@ for (let i = 0; i < enemy.length; i++){
 for (let i = enemy.length - 1; i >= 0; i--){
 
 if(dist(player.x, player.y,enemy[i].x, enemy[i].y) <= (player.r + enemy[i].r)/2){
+  player.r--;
   points--;
   console.log(points);
   enemy.splice(i, 1);
@@ -167,38 +181,64 @@ if(dist(player.x, player.y,enemy[i].x, enemy[i].y) <= (player.r + enemy[i].r)/2)
   enemy,splice(i, 1);
   console.log('enemy is out of town');
 }
+
+if(points<=0){
+  player.r=70;
+}
+if(points<=-1){
+  state = 'you lost';
+}
+if(points>=40){
+  state = 'you win';
 }
 
 
 
-
-text('points: ' + points, w/7, h - 560);
-
-
-
+}text('points: ' + points, w/7, h - 560);
 }
+
+
+
 
 function level1MouseClicked(){
 
-    points++;
+    // points++;
     console.log('points = ' + points);
 
-    if(points = 10){
-      state = 'you win';
-    }
+    // if(points = 10){
+    //   state = 'you win';
+    // }
 }
 
 function youWin(){
-  background(bgImg);
+  background(winImg);
   textSize(80);
-  stroke(255);
-  text('YOU WIN', w/2, h/2);
+  fill(255);
+  textAlign(CENTER);
+  text('YOU WIN', w/2, h/5);
 
   textSize(30);
-  text('click anywhere to restart', w/2, h* 3/4);
+  text('click anywhere to restart', w/2, h/2.8);
+
 }
 
 function youWinMouseClicked(){
+  state = 'level 1';
+  points = 0;
+}
+
+function youLost(){
+  background(dieImg);
+  textSize(80);
+  fill(255);
+  textAlign(CENTER);
+  text('YOU LOST', w/2, h/5);
+
+  textSize(30);
+  text('click anywhere to restart', w/2, h/1.02);
+
+}
+function youLostMouseClicked(){
   state = 'level 1';
   points = 0;
 }
