@@ -173,8 +173,8 @@ for (let i = 0; i < enemy.length; i++){
 for (let i = enemy.length - 1; i >= 0; i--){
 
 if(dist(player.x, player.y,enemy[i].x, enemy[i].y) <= (player.r + enemy[i].r)/2){
-  player.r--;
-  points-= 10;
+  player.r-= 5;
+  points-= 5;
   console.log(points);
   enemy.splice(i, 1);
 } else if (enemy[i]. y > h){
@@ -188,7 +188,7 @@ if(points<=0){
 if(points<=-1){
   state = 'you lost';
 }
-if(points>=50){
+if(points>=25){
   state = 'you win';
 }
 
