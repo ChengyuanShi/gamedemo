@@ -139,7 +139,7 @@ function level1(){
   for (let i = coins.length - 1; i >= 0; i--){
 
   if(dist(player.x, player.y, coins[i].x, coins[i].y) <= (player.r + coins[i].r)/2){
-    player.r++;
+    player.r+= 2;
     points++;
 
     console.log(points);
@@ -173,7 +173,7 @@ for (let i = 0; i < enemy.length; i++){
 for (let i = enemy.length - 1; i >= 0; i--){
 
 if(dist(player.x, player.y,enemy[i].x, enemy[i].y) <= (player.r + enemy[i].r)/2){
-  player.r-= 5;
+  player.r-= 20;
   points-= 5;
   console.log(points);
   enemy.splice(i, 1);
@@ -188,7 +188,7 @@ if(points<=0){
 if(points<=-1){
   state = 'you lost';
 }
-if(points>=25){
+if(points>=20){
   state = 'you win';
 }
 
