@@ -95,7 +95,7 @@ function title() {
   textSize(80);
   fill(255);
   textAlign(CENTER);
-  text('RAIN EATER', w/2, h/5);
+  text('RAIN SLIME', w/2, h/5);
 
   textSize(30);
   text('click anywhere to start', w/2, h/2.8);
