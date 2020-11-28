@@ -97,8 +97,14 @@ function title() {
   textAlign(CENTER);
   text('RAIN SLIME', w/2, h/5);
 
+  textSize(40);
+  text('Click Anywhere To Start', w/2, h/2.8);
   textSize(30);
-  text('click anywhere to start', w/2, h/2.8);
+  text('Gain 21 points to win', w/2, h/2.3);
+  text('Rain +1 point', w/2.5, h/2.0);
+  text('Missing Rain -1 point', w/1.99, h/1.78);
+  text('Acid Rain -5 points', w/2.1, h/1.6);
+  text('CONTROL: LEFT ARROW & RIGHT ARROW', w/2.2, h/1.09);
 }
 
 function titleMouseClicked(){
