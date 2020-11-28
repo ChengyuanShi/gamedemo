@@ -66,9 +66,9 @@ function draw() {
 
 function keyPressed(){
   if(keyCode == LEFT_ARROW){
-    player.direction = 'left'
+    player.direction = 'left';
   } else if (keyCode == RIGHT_ARROW){
-    player.direction = 'right'
+    player.direction = 'right';
 }
 // else if (keyCode == UP_ARROW){
 //   player.direction = 'up'
@@ -112,7 +112,8 @@ function level1(){
 
   if (random(1) <= 0.01){
     coins.push(new Coin());
-
+  }
+if (random(0.5) <= 0.01){
     enemy.push(new Enemy());
   }
 
@@ -145,7 +146,8 @@ function level1(){
     console.log(points);
     coins.splice(i, 1);
   } else if (coins[i]. y > h){
-    coins,splice(i, 1);
+    coins.splice(i, 1);
+      points--;
     console.log('coin is out of town');
 
   }
@@ -160,36 +162,31 @@ for (let i = 0; i < enemy.length; i++){
 }
 
 
-// coins.forEach(function(coin){
-//   coin.display();
-//   coin.move();
-// })
-
-// for (let coin of coins){
-//   coin.display();
-//   coin.move();
-// }
-
 for (let i = enemy.length - 1; i >= 0; i--){
 
-if(dist(player.x, player.y,enemy[i].x, enemy[i].y) <= (player.r + enemy[i].r)/2){
-  player.r-= 20;
+if(dist(player.x, player.y, enemy[i].x, enemy[i].y) <= (player.r + enemy[i].r)/2){
+  player.r-= 10;
   points-= 5;
   console.log(points);
   enemy.splice(i, 1);
 } else if (enemy[i]. y > h){
-  enemy,splice(i, 1);
+  enemy.splice(i, 1);
   console.log('enemy is out of town');
 }
 
 if(points<=0){
-  player.r=70;
+  player.r=50;
 }
 if(points<=-1){
   state = 'you lost';
+  coins = [];
+  // enemy = [];
+  // enemy.length = 0;
 }
 if(points>=21){
   state = 'you win';
+  coins = [];
+  // enemy = [];
 }
 
 
@@ -223,7 +220,7 @@ function youWin(){
 }
 
 function youWinMouseClicked(){
-  state = 'level 1';
+  state = 'title';
   points = 0;
 }
 
@@ -239,6 +236,6 @@ function youLost(){
 
 }
 function youLostMouseClicked(){
-  state = 'level 1';
+  state = 'title';
   points = 0;
 }
