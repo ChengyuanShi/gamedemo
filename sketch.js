@@ -30,6 +30,8 @@ cnv =  createCanvas(w, h);
 
 textFont('monospace');
 
+// imageMode(CENTER);
+
   player = new Player();
 
   // coins[0] = new Coin();
