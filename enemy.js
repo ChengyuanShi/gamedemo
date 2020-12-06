@@ -4,7 +4,7 @@ class Enemy {
     this.r = 40;
     this.x = random(w);
     this.y = 0 - this.r;
-    this.speed = 8;
+    this.speed = 9;
   }
 
   display(){
