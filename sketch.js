@@ -14,7 +14,7 @@ let bgImg;
 let enemyImg;
 let winImg;
 let dieImg;
-let bg2Img;
+let bg3Img;
 
 
 function preload(){
@@ -24,7 +24,7 @@ function preload(){
   bgImg = loadImage('image/BG.gif');
   winImg = loadImage('image/win.gif');
   dieImg = loadImage('image/die.gif');
-  bg2Img = loadImage('image/bg2.gif');
+  bg3Img = loadImage('image/bg3.gif');
 }
 
 function setup(){
@@ -443,7 +443,7 @@ function levelUp2MouseClicked(){
 }
 
 function youWin(){
-  background(bg2Img);
+  background(bg3Img);
   textSize(80);
   fill(255);
   textAlign(CENTER);
