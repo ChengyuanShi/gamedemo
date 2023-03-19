@@ -3,8 +3,8 @@
 let state = 'title';
 let cnv;
 let points = 0;
-let w = 600;
-let h = 600;
+let w = 800;
+let h = 800;
 let player;
 let coins = [];
 let enemy = [];
@@ -30,7 +30,7 @@ function preload(){
 function setup(){
 cnv =  createCanvas(w, h);
 
-textFont('monospace');
+textFont('arial black');
 // imageMode(CENTER);
   player = new Player();
 
@@ -215,7 +215,7 @@ if(points>=11){
 
 
 
-}text('points: ' + points, w/7, h - 560);
+}text('points: ' + points, w/7, h - 740);
 }
 
 function level1MouseClicked(){
